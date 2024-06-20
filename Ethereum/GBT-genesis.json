@@ -1,14 +1,14 @@
 {
   "config": {
     "chainId": 108,
-    "homesteadBlock": 1000,
-    "eip150Block": 10000,
-    "eip155Block": 25000,
-    "eip158Block": 100000,
-    "byzantiumBlock": 150000,
-    "constantinopleBlock": 200000,
-    "petersburgBlock": 295700,
-    "istanbulBlock": 296000,
+    "homesteadBlock": 10,
+    "eip150Block": 100,
+    "eip155Block": 250,
+    "eip158Block": 300,
+    "byzantiumBlock": 1500,
+    "constantinopleBlock": 2000,
+    "petersburgBlock": 29570,
+    "istanbulBlock": 29600,
     "ethash": {}
   },
   "nonce": "0x63687269616d7565",
