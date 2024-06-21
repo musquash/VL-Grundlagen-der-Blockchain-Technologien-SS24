@@ -32,6 +32,12 @@ def send_tx(sender, receiver, amount, web3):
     return tx_hash
 
 
+def read_tx(tx_hash, web3):
+    tx = web3.eth.get_transaction(tx_hash)
+    _data = tx.input
+    return web3.to_text(_data)
+
+
 class GBT:
 
     def __init__(self, rpc_url=''):

@@ -2,14 +2,13 @@
 Hilfestellung zu den Aufgaben im Übungsblatt 6 der Vorlesung Grundlagen der Blockchain-Technologien im Sommersemester 24
 """
 
-from Ethereum.gbt.blockchain import GBT, send_tx
+from Ethereum.gbt.blockchain import GBT, send_tx, read_tx
 
 # First you have to init an instance. You can connect to your own node by put in the RPC information:
 # GBT('http://<url.com|IP>:<port>)
 gbt = GBT()
 
 # You can check, if the connection to the node is possible
-gbt.w1.is_connected()
 print(f"Node 1 ist verbunden: {gbt.w1.is_connected()} \n"
       f"Node 2 ist verbunden: {gbt.w2.is_connected()} \n"
       f"Node 3 ist verbunden: {gbt.w3.is_connected()}")
@@ -29,12 +28,12 @@ print(f"You have an imported account with address {account_from_key.address} \n"
 # Now the transaction must be initialized and sent from an account with a balance.
 tx_hash = send_tx(sender=account._private_key, receiver=account.address, web3=gbt.w1, amount=10000)
 
-
 print(f"Transaction with hash {tx_hash} was successfully deployed.")
 
 
-
 # Read data from a transaction
+tx_hash = '0xd465c580999e9b40afcdb21a4eb3719f0c95218b351dbe9ac1f268cbd12b1529'
+read_tx(tx_hash, gbt.w1)
 
 
 
