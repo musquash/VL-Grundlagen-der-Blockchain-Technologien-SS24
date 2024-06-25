@@ -38,6 +38,10 @@ def read_tx(tx_hash, web3):
     return web3.to_text(_data)
 
 
+def foo():
+    return None
+
+
 class GBT:
 
     def __init__(self, rpc_url=''):
