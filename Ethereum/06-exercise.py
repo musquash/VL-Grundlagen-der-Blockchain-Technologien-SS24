@@ -33,7 +33,7 @@ print(f"Transaction with hash {tx_hash} was successfully deployed.")
 
 # Read data from a transaction
 tx_hash = '0xd465c580999e9b40afcdb21a4eb3719f0c95218b351dbe9ac1f268cbd12b1529'
-read_tx(tx_hash, gbt.w1)
+read_tx(f"In Tx with ID {tx_hash} is follwing text: \n",  f"{gbt.w1}")
 
 
 
