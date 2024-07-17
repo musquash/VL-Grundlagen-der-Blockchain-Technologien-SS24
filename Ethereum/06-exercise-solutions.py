@@ -114,6 +114,6 @@ receipt = send_tx_data(sender=account._private_key, receiver=account.address, am
 
 # Exercise 6.1 b e:
 # The following method finds all pgp keys, but don't compare if it is already saved.
-keys = find_pgp_keys(w3=gbt.w1, start=0)
+keys = find_pgp_keys(w3=gbt.w1, start=110000)
 
 
