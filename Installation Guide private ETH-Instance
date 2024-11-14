@@ -1,0 +1,78 @@
+### Installation einer privaten Ethereum Chain für die EBC-Vorlesung
+
+
+# Installation of geth. Von PPA geht nur mit aktuellster Version von Geth. Da ist kein ETHASH mehr vorhanden!
+sudo apt install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum 
+
+
+
+# Installation von Geth 1.11.6 mit Github unter Ubuntu
+   80  sudo apt install git make
+   81  git clone https://github.com/ethereum/go-ethereum.git
+   82  cd go-ethereum/
+   83  git checkout v1.11.6
+   84  make geth
+   85  sudo apt remove geth. # this is just needed if sudo apt install ethereum was done before.
+
+   87  sudo apt remove golang-go
+
+   93  wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
+   94  sudo rm -rf /usr/local/go
+   95  sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz go/
+   96  export PATH=$PATH:/usr/local/go/bin
+   97  go version
+   98  cd go-ethereum/
+   99  make geth
+  100  sudo mv build/bin/geth /usr/local/bin/
+  101  geth version
+
+Run geth:
+``` 
+geth --datadir ./data/ --networkid 108 --ethstats contabo1:EBC107@194.163.134.215:2056 --http --http.addr "194.163.134.215" --http.port 9001 --http.corsdomain "*" --http.api "eth,net,web3,personal" 
+```
+
+geth --datadir ./ --networkid 108 --ethstats contabo1:GBT-108@62.171.152.173:3000 --http --http.addr "62.171.152.173" --http.port 9001 --http.corsdomain "*" --http.api "eth,net,web3,personal" --ws --ws.addr "62.171.152.173" --ws.port 9002 --ws.origins "*" --ws.api "eth,net,web3,personal"
+
+
+
+### Installation of eth-stats
+
+# Prerequisits
+`sudo apt install nodejs npm`
+
+Check if versions fits: node -v >= 16.xx
+
+IF not:
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+nvm install 16
+
+```
+
+After that you can install the geth client:
+``` 
+git clone https://github.com/goerli/ethstats-server.git
+cd ethstats-server
+npm install
+
+sudo npm install -g grunt-cli
+grunt pow
+PORT=2056 WS_SECRET=GBT-108 npm start
+```
+
+
+PORT=3000 WS_SECRET=GBT-108 npm start
+
+
+
+
+### Blockscout for explorer
+https://github.com/blockscout/blockscout/tree/master/docker-compose
+
